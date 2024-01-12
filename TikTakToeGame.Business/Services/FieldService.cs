@@ -25,12 +25,21 @@ namespace TikTakToeGame.Business.Services
 
         public async Task<IEnumerable<Field>> GetAllItemsAsync()
         {
-            return await _genericRepository.GetAllAsync();
+            return await _genericRepository.GetAllAsync("Turn,Status");
         }
 
         public async Task<Field> GetItemByIdAsync(int id)
         {
-            return await _genericRepository.GetByIdAsync(id);
+            return await _genericRepository.GetByIdAsync(id, "Turn,Status");
+        }
+
+        public async Task UpdatePlayersAsync(string newPlayersValue, int id)
+        {
+            var tableItem = await _genericRepository.GetByIdAsync(id);
+
+            tableItem.Players = newPlayersValue;
+
+            await _genericRepository.SaveAsync();
         }
 
         public async Task UpdateItemAsync(string positions, int id)

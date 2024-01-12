@@ -9,5 +9,6 @@ namespace TikTakToeGame.Business.Services
         Task<Field> GetItemByIdAsync(int id);
         Task CreateItemAsync();
         Task UpdateItemAsync(string positions, int id);
+        Task UpdatePlayersAsync(string newPlayersValue, int id);
     }
 }
