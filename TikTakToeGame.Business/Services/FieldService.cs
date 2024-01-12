@@ -32,7 +32,7 @@ namespace TikTakToeGame.Business.Services
             return await _genericRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateItemAsync(List<Mark> positions, int id)
+        public async Task UpdateItemAsync(List<int> positions, int id)
         {
             var tableItem =  await _genericRepository.GetByIdAsync(id);
 
