@@ -8,6 +8,6 @@ namespace TikTakToeGame.Business.Services
         Task<IEnumerable<Field>> GetAllItemsAsync();
         Task<Field> GetItemByIdAsync(int id);
         Task CreateItemAsync();
-        Task UpdateItemAsync(List<int> positions, int id);
+        Task UpdateItemAsync(List<Mark> positions, int id);
     }
 }

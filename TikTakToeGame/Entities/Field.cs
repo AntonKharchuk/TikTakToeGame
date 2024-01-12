@@ -3,7 +3,7 @@ namespace TikTakToeGame.Entities
 {
     public class Field: BaseEntity
     {
-        public List<int>? Positions { get; set; }//0 none, 1 X, 2 O
+        public List<Mark>? Positions { get; set; }
         /*
         0,1,2
         3,4,5
