@@ -9,6 +9,7 @@ namespace TikTakToeGame.Entities
         3,4,5
         6,7,8
          */
+        public string? Players { get; set; }
 
         public int StatusId { get; set; }
         public Status? Status { get; set; }
