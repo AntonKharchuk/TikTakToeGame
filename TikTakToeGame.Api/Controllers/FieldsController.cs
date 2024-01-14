@@ -46,8 +46,8 @@ namespace TikTakToeGame.Api.Controllers
 
             return Ok();
         }
-        [HttpPut("{id}/{players}")]
-        public async Task<IActionResult> UpdateFieldPlayers(int id, string players)
+        [HttpPut("{id}/players")]
+        public async Task<IActionResult> UpdateFieldPlayers(int id, [FromBody] string players)
         {
             await _entityServise.UpdatePlayersAsync(players, id);
 
