@@ -16,7 +16,7 @@ namespace TikTakToeGame.Business.Services
             var newField = new Field()
             {
                 Positions = "0,0,0,0,0,0,0,0,0",
-                StatusId = 1,
+                StatusId = 5,
                 TurnId = 1,
             };
             await _genericRepository.AddAsync(newField);
@@ -37,7 +37,10 @@ namespace TikTakToeGame.Business.Services
         {
             var tableItem = await _genericRepository.GetByIdAsync(id);
 
-            tableItem.Players = newPlayersValue;
+            if (string.IsNullOrEmpty(newPlayersValue))
+                tableItem.Players = null;
+            else
+                tableItem.Players = newPlayersValue;
 
             await _genericRepository.SaveAsync();
         }
@@ -55,6 +58,7 @@ namespace TikTakToeGame.Business.Services
         private void UpdateTurnAndStatus(Field field)
         {
             field.TurnId = field.TurnId == 1 ? 2 : 1;
+            field.StatusId = 1;
 
             var positions = new int[9];
             
