@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 using TikTakToeGame;
 using TikTakToeGame.Api;
+using TikTakToeGame.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
